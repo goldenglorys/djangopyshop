@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+    {% block content %}
+        <script>
+         let change_view = false
+         function use_django(){
+            change_view = !change_view
+         }
+        </script>
+        <div>
+            <h1 class="text-center">Products</h1>
+<!--            <button class="btn btn-dark float-right mr-5 mb-2">Change View</button>-->
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">${{ product.price }}</p>
+                                <a href="#" class="btn btn-primary">Add</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+<!--                <table class="table table-bordered">-->
+<!--                    <tr>-->
+<!--                        <td class="text-center">Image</td>-->
+<!--                        <td class="text-center">Name</td>-->
+<!--                        <td class="text-center">Price</td>-->
+<!--                        <td class="text-center">Instock</td>-->
+<!--                    </tr>-->
+<!--                    {% for product in products %}-->
+<!--                    <tr>-->
+<!--                        <td class="text-center"><img src="{{product.image_url}}" style="width:100px"></td>-->
+<!--                        <td>{{ product.name }}</td>-->
+<!--                        <td>${{ product.price }}</td>-->
+<!--                        <td>{{ product.stock }}</td>-->
+<!--                    </tr>-->
+<!--                    {% endfor %}-->
+<!--                </table>-->
+        </div>
+    {% endblock %}
+</body>
+</html>
